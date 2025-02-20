@@ -4,8 +4,7 @@ import { authData } from '../api/auth';
 
 const ProtectedRoutes = ({ authentication }) => {
   const isAuthenticated = authData()?.state?.isAuthenticated || false;
-  console.log('authData =====>', authData());
-  console.log('isAuthenticated =====>', isAuthenticated);
+
   // 인증이 필요한 페이지인데
   if (authentication) {
     return isAuthenticated === false ? (
