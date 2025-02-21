@@ -5,6 +5,7 @@ export default {
     textColor: {
       white: '#fefefe',
       black: '#333333',
+      gray: '#C1C3C6',
     },
     color: {
       white: '#fefefe',

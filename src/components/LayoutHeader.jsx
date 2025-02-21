@@ -27,19 +27,19 @@ const LayoutHeader = () => {
         <h1>로고</h1>
         <nav className="relative flex gap-4 items-center">
           <div
-            className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
             onClick={() => navigate('/')}>
             대시보드
           </div>
           {isAuthenticated && (
             <>
               <div
-                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
                 onClick={() => navigate('/test')}>
                 테스트
               </div>
               <div
-                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
                 onClick={() => navigate('/result')}>
                 결과 보기
               </div>
