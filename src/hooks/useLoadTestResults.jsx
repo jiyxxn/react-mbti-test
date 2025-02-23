@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { readTestResults } from '../api/testResults';
+import { readTestResults } from '../api/mbtiTestResultsService';
 
 /**
  * @hook useLoadTestResults
