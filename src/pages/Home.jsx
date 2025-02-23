@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-16 items-center mt-10 p-10 font-light xl:px-80">
+    <div className="flex flex-col items-center gap-8 p-10 pt-32 font-light xl:px-72 lg:px-46 md:px-26">
       <div>
-        <h2 className="text-3xl text-center font-bold">MBTI 테스트</h2>
+        <h2 className="text-3xl font-bold text-center">MBTI 테스트</h2>
         <p className="pt-4">
           자신의 성격 유형을 확인할 수 있도록 솔직하게 답변해 주세요.
         </p>
       </div>
-      <ul className="flex gap-10">
+      <ul className="flex flex-col gap-10 md:flex-row">
         <li className="px-6 py-8 rounded-lg shadow-md flex-1 bg-white transform hover:translate-y-[-6px] transition-transform duration-500">
           <h3 className="text-lg font-bold bg-[url('https://em-content.zobj.net/source/apple/391/clipboard_1f4cb.png')] bg-no-repeat bg-contain pl-8">
             MBTI 유형 검사
@@ -38,12 +39,10 @@ const Home = () => {
           </p>
         </li>
       </ul>
-      <button
-        type="button"
-        className="bg-indigo-500 rounded-lg px-4 py-3 text-md font-medium text-white hover:bg-indigo-700"
-        onClick={() => navigate('/test')}>
-        내 MBTI 알아보러 가기
-      </button>
+      <Button
+        onClick={() => navigate('/test')}
+        text={'내 MBTI 알아보러 가기'}
+      />
     </div>
   );
 };

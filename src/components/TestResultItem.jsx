@@ -59,7 +59,7 @@ const TestResultItem = ({
 
   return (
     <li>
-      <div className="flex items-center justify-between px-2 py-4">
+      <div className="flex flex-col justify-between gap-2 px-2 py-4 sm:items-center sm:flex-row sm:gap-0">
         <span className="text-xl font-semibold text-slate-700">
           {user.nickname}
           <span className="text-sm text-slate-500"> 의 결과 💌</span>
@@ -68,27 +68,27 @@ const TestResultItem = ({
           {new Date(date).toLocaleString()}
         </span>
       </div>
-      <div className="p-6 border-2 border-indigo-100 shadow-inner bg-indigo-50 rounded-xl text-indigo-950 shadow-indigo-100">
-        <div className="flex items-center justify-between">
+      <div className="p-4 border-2 border-indigo-100 shadow-inner sm:p-6 bg-indigo-50 rounded-xl text-indigo-950 shadow-indigo-100">
+        <div className="flex flex-col justify-between sm:items-center sm:flex-row">
           <span className="text-xl font-bold">{results}</span>
-          {user.userId === authenticatedUserId && ( // 자신이 테스트한 결과에만 버튼 노출
-            <div>
-              <button
-                className="px-4 py-2 text-sm font-medium text-white bg-indigo-500 rounded hover:bg-indigo-600"
-                onClick={() => onHandleUpdate(id)}>
-                {openedData ? '비공개로 전환' : '공개로 전환'}
-              </button>
-              <button
-                className="px-4 py-2 ml-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
-                onClick={() => onHandleDelete(id)}>
-                삭제하기
-              </button>
-            </div>
-          )}
         </div>
         <p className="p-2 pt-4 mt-2 border-t-2 border-indigo-100 border-dotted indent-1">
           {mbtiDescriptions[results]}
         </p>
+        {user.userId === authenticatedUserId && ( // 자신이 테스트한 결과에만 버튼 노출
+          <div className="flex items-center justify-end mt-4">
+            <button
+              className="px-4 py-2 text-sm font-medium text-white bg-indigo-500 rounded hover:bg-indigo-600"
+              onClick={() => onHandleUpdate(id)}>
+              {openedData ? '비공개로 전환' : '공개로 전환'}
+            </button>
+            <button
+              className="px-4 py-2 ml-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
+              onClick={() => onHandleDelete(id)}>
+              삭제하기
+            </button>
+          </div>
+        )}
       </div>
     </li>
   );

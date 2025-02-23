@@ -16,7 +16,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`w-full p-4 mt-10 text-lg text-white bg-indigo-500 rounded-md hover:bg-indigo-700 ${
+      className={`w-full p-2 sm:p-4 mt-10 text-md sm:text-lg text-white bg-indigo-500 rounded-md hover:bg-indigo-700 ${
         isPending ? 'opacity-50 cursor-not-allowed' : 'hover:bg-indigo-700'
       }`}
       disabled={isPending}

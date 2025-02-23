@@ -90,15 +90,17 @@ const TestPage = () => {
   };
 
   return (
-    <div className="p-10 lg:p-20 xl:px-60 xl:py-28">
+    <div className="p-6 sm:p-10 pt-28 lg:p-20 xl:px-60 xl:py-28">
       {!result ? (
         <TestForm onPostResult={onPostResult} />
       ) : (
-        <div className="p-20 bg-white border-gray-500 shadow-md py-14 rounded-xl">
-          <h2 className="mb-6 text-xl">
-            <span className="text-2xl font-bold">{userInfo.nickname}</span>의
-            MBTI 결과는 ...{' '}
-            <span className="text-2xl font-bold text-indigo-800">
+        <div className="p-6 py-10 bg-white border-gray-500 shadow-md sm:py-14 sm:p-20 rounded-xl">
+          <h2 className="mb-6 text-lg sm:text-xl">
+            <span className="text-xl font-bold sm:text-2xl">
+              {userInfo.nickname}
+            </span>
+            의 MBTI 결과는 ...{' '}
+            <span className="text-xl font-bold text-indigo-800 sm:text-2xl">
               {result} ✨
             </span>
           </h2>

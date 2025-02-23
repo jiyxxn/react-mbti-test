@@ -4,6 +4,7 @@
 
 html {
   background-color: #f9fafb;
+  min-width: 360px;
 }
 
 @font-face {
