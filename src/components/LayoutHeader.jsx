@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useUsersStore from '../zustand/bearsStore';
-import { authData } from '../api/auth';
 
+/**
+ * @component LayoutHeader
+ * @description 헤더 컴포넌트로, 대시보드, 테스트, 결과보기, 프로필, 로그인/로그아웃 메뉴를 제공
+ * @description 로그인 상태에 따라 다른 메뉴를 표시하며, 드롭다운을 통해 프로필과 로그아웃 기능을 제공
+ * @returns {JSX.Element} 페이지 상단에 표시되는 헤더
+ */
 const LayoutHeader = () => {
   const navigate = useNavigate();
-  const isAuthenticated = authData()?.state?.isAuthenticated || false;
+  const isAuthenticated = useUsersStore((state) => state.isAuthenticated);
   const userLogout = useUsersStore((state) => state.userLogout);
 
   // 드롭다운 열림/닫힘 상태 관리
@@ -22,24 +27,24 @@ const LayoutHeader = () => {
   };
 
   return (
-    <header className="bg-gray-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 mx-auto">
-      <div className="relative flex gap-6 h-16 items-center">
+    <header className="flex items-center justify-between px-4 mx-auto bg-indigo-950 sm:px-6 lg:px-8">
+      <div className="relative flex items-center h-16 gap-6">
         <h1>로고</h1>
-        <nav className="relative flex gap-4 items-center">
+        <nav className="relative flex items-center gap-4">
           <div
-            className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
+            className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
             onClick={() => navigate('/')}>
             대시보드
           </div>
           {isAuthenticated && (
             <>
               <div
-                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
+                className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
                 onClick={() => navigate('/test')}>
                 테스트
               </div>
               <div
-                className="cursor-pointer bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-gray-700 hover:text-white"
+                className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
                 onClick={() => navigate('/result')}>
                 결과 보기
               </div>
@@ -52,7 +57,7 @@ const LayoutHeader = () => {
         <div>
           <div
             onClick={toggleDropdown}
-            className="cursor-pointer relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+            className="relative flex text-sm rounded-full cursor-pointer focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
             <span className="absolute -inset-1.5" />
             <span className="sr-only">사용자 메뉴 열림</span>
             <img
@@ -64,17 +69,17 @@ const LayoutHeader = () => {
 
           {/* 드롭다운 메뉴 */}
           {isDropdownOpen && (
-            <div className="absolute right-2 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 transition-all duration-100 ease-out transform opacity-100 scale-100">
+            <div className="absolute z-10 w-48 py-1 mt-2 transition-all duration-100 ease-out origin-top-right transform scale-100 bg-white rounded-md shadow-lg opacity-100 right-2 ring-1 ring-black/5">
               <div>
                 <span
                   onClick={() => navigate('/profile')}
-                  className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none">
+                  className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 focus:outline-none">
                   프로필
                 </span>
               </div>
               <div>
                 <span
-                  className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none"
+                  className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 focus:outline-none"
                   onClick={() => onHandleLogout()}>
                   로그아웃
                 </span>
@@ -85,7 +90,7 @@ const LayoutHeader = () => {
       ) : (
         <button
           type="button"
-          className="cursor-pointer bg-indigo-600 rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-indigo-500"
+          className="px-3 py-2 text-sm font-bold text-white bg-indigo-600 rounded-md cursor-pointer hover:bg-indigo-500"
           onClick={() => navigate('/login')}>
           로그인
         </button>
