@@ -10,9 +10,10 @@
  */
 const QuestionLi = ({ id, question, options, type, onRadioChange }) => {
   const typeOptions = type.split('/');
+  console.log('typeOptions =====>', typeOptions);
 
   return (
-    <li key={id} className="p-8 border-2 rounded-md border-slate-200">
+    <li key={id} className="p-4 border-2 rounded-md md:p-8 border-slate-200">
       <p className="mb-4 text-lg">
         <span className="text-md">{id}. </span>
         {question}
@@ -32,7 +33,7 @@ const QuestionLi = ({ id, question, options, type, onRadioChange }) => {
               onChange={(e) => onRadioChange(e, id, type)}
               className="w-5 h-5 transition-all border rounded-full appearance-none cursor-pointer peer border-slate-300 checked:border-slate-800"
             />
-            <span className="absolute w-3 h-3 transition-opacity duration-200 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 peer-checked:opacity-100 top-4 left-4">
+            <span className="absolute w-5 h-5 transition-opacity duration-200 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 peer-checked:opacity-100 top-1/2 left-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

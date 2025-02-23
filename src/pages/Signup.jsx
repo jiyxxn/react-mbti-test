@@ -32,9 +32,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex-col justify-center flex-1 min-h-full px-6 py-12 lex lg:px-8 ">
+    <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-28 lg:px-8 ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 font-bold tracking-tight text-center text-gray-900 text-2xl/9">
+        <h2 className="font-bold tracking-tight text-center text-gray-900 text-2xl/9">
           회원가입
         </h2>
       </div>

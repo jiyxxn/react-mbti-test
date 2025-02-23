@@ -44,9 +44,9 @@ const TestForm = ({ onPostResult }) => {
     <form
       action="#"
       method="post"
-      className="p-20 bg-white border-gray-500 shadow-md py-14 rounded-xl"
+      className="p-4 py-10 bg-white border-gray-500 shadow-md md:p-20 md:py-14 rounded-xl"
       onSubmit={(e) => onHandleAnswers(e)}>
-      <ul className="grid grid-cols-2 gap-4 ">
+      <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2 ">
         {questions.map((question) => (
           <QuestionLi
             key={question.id}

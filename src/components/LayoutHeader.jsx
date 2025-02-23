@@ -21,32 +21,38 @@ const LayoutHeader = () => {
   };
 
   const onHandleLogout = () => {
+    setIsDropdownOpen(false);
     userLogout();
     alert('로그아웃되었습니다.');
     navigate('/');
   };
 
   return (
-    <header className="flex items-center justify-between px-4 mx-auto bg-indigo-950 sm:px-6 lg:px-8">
-      <div className="relative flex items-center h-16 gap-6">
-        <h1>로고</h1>
+    <header className="fixed z-50 flex items-center justify-between w-full px-4 mx-auto bg-indigo-950 sm:px-6 lg:px-8">
+      <div className="relative flex items-center h-16 gap-2 sm:gap-4">
+        <h1 className="cursor-pointer" onClick={() => navigate('/')}>
+          <img src="/logo.png" alt="mbti 테스트" className="w-20" />
+        </h1>
         <nav className="relative flex items-center gap-4">
           <div
             className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
             onClick={() => navigate('/')}>
-            대시보드
+            <span className="block sm:hidden">🏠</span>
+            <span className="hidden sm:block">대시보드</span>
           </div>
           {isAuthenticated && (
             <>
               <div
                 className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
                 onClick={() => navigate('/test')}>
-                테스트
+                <span className="block sm:hidden">📑</span>
+                <span className="hidden sm:block">테스트</span>
               </div>
               <div
                 className="px-3 py-2 text-sm font-medium text-gray-200 bg-indigo-900 rounded-md cursor-pointer hover:bg-indigo-700 hover:text-white"
                 onClick={() => navigate('/result')}>
-                결과 보기
+                <span className="block sm:hidden">💌</span>
+                <span className="hidden sm:block">결과 보기</span>
               </div>
             </>
           )}
