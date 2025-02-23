@@ -6,12 +6,19 @@ const useUsersStore = create(
     (set) => ({
       userToken: '',
       isAuthenticated: false,
-      userLogin: (token) => set({ userToken: token, isAuthenticated: true }),
-      userLogout: () => set({ userToken: '', isAuthenticated: false }),
+      userId: '',
+      userLogin: (token, userId) =>
+        set({
+          userToken: token,
+          isAuthenticated: true,
+          userId: userId,
+        }),
+      userLogout: () =>
+        set({ userToken: '', isAuthenticated: false, userId: '' }),
     }),
     {
-      name: 'auth-storage', // localStorage에 저장될 key
-      storage: createJSONStorage(() => localStorage), // JSON 변환을 포함한 저장 방식 사용
+      name: 'auth-storage',
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );
