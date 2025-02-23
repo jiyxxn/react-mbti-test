@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createTestResult } from '../api/testResults';
+import { createTestResult } from '../api/mbtiTestResultsService';
 
 /**
  * @hook useAddTest

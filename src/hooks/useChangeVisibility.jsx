@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateTestResult } from '../api/testResults';
+import { updateTestResult } from '../api/mbtiTestResultsService';
 
 /**
  * @hook useChangeVisibility
