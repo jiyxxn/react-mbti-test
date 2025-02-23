@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * @component AuthForm
+ * @description 로그인 또는 회원가입을 위한 폼을 렌더링하고, 제출 시 서버로 데이터를 전송하는 컴포넌트
+ * @param {'login' | 'signup'} props.mode - 로그인 또는 회원가입 모드
+ * @param {Function} props.onSubmit - 폼 제출 시 호출되는 함수
+ * @returns {JSX.Element} 로그인 또는 회원가입 폼을 렌더링
+ */
 const AuthForm = ({ mode, onSubmit }) => {
   const navigate = useNavigate();
 
@@ -15,7 +22,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   return (
-    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md bg-white py-14 px-10 rounded-xl shadow-md">
+    <div className="px-10 mt-10 bg-white shadow-md sm:mx-auto sm:w-full sm:max-w-md py-14 rounded-xl">
       <>
         <form
           action="#"
@@ -25,7 +32,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           <div>
             <label
               htmlFor="id"
-              className="block text-sm/6 font-medium text-black">
+              className="block font-medium text-black text-sm/6">
               아이디
             </label>
             <div className="mt-2">
@@ -44,7 +51,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             <div>
               <label
                 htmlFor="nickname"
-                className="block text-sm/6 font-medium text-black">
+                className="block font-medium text-black text-sm/6">
                 닉네임
               </label>
               <div className="mt-2">
@@ -64,7 +71,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm/6 font-medium text-black">
+                className="block font-medium text-black text-sm/6">
                 비밀번호
               </label>
             </div>
@@ -100,20 +107,20 @@ const AuthForm = ({ mode, onSubmit }) => {
           )}
         </form>
         {mode === 'login' ? (
-          <p className="mt-10 text-center text-sm/6 text-gray-500">
+          <p className="mt-10 text-center text-gray-500 text-sm/6">
             계정이 없으신가요?{' '}
             <span
               onClick={() => navigate('/signup')}
-              className="cursor-pointer font-semibold text-indigo-600 hover:text-indigo-500">
+              className="font-semibold text-indigo-600 cursor-pointer hover:text-indigo-500">
               회원가입
             </span>
           </p>
         ) : (
-          <p className="mt-10 text-center text-sm/6 text-gray-500">
+          <p className="mt-10 text-center text-gray-500 text-sm/6">
             이미 계정이 있으신가요?{' '}
             <span
               onClick={() => navigate('/login')}
-              className="cursor-pointer font-semibold text-indigo-600 hover:text-indigo-500">
+              className="font-semibold text-indigo-600 cursor-pointer hover:text-indigo-500">
               로그인
             </span>
           </p>
