@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API 기본 URL 설정
-const API_URL = 'http://localhost:5000/testResults';
+const API_URL = 'https://glen-carbonated-anaconda.glitch.me/testResults';
 
 /**
  * @function createTestResult
