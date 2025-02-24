@@ -14,9 +14,9 @@ const Router = () => {
       <LayoutHeader />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
 
         <Route element={<ProtectedRoutes authentication={false} />}>
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Route>
 
