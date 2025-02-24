@@ -80,7 +80,7 @@ export const questions = [
   {
     id: 12,
     question: '새로운 도전을 할 때?',
-    options: ['일단 해보자! 즉흥적으로 시작', '철저하게 준비하고 도전'],
+    options: ['철저하게 준비하고 도전', '일단 해보자! 즉흥적으로 시작'],
     type: 'J/P',
   },
   {
