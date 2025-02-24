@@ -30,7 +30,7 @@ const QuestionLi = ({ id, question, options, type, onRadioChange }) => {
               id={option}
               value={typeOptions[index]} // type에 맞는 E/I/S/N/J/P 값을 value로 설정
               onChange={(e) => onRadioChange(e, id, type)}
-              className="w-5 h-5 transition-all border rounded-full appearance-none cursor-pointer peer border-slate-300 checked:border-slate-800"
+              className="w-5 h-5 transition-all border rounded-full appearance-none cursor-pointer aspect-square peer border-slate-300 checked:border-slate-800"
             />
             <span className="absolute w-5 h-5 transition-opacity duration-200 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 peer-checked:opacity-100 top-1/2 left-5">
               <svg
