@@ -15,7 +15,7 @@ const KakaoShare = ({ description }) => {
       content: {
         title: '나의 MBTI는?',
         description: description,
-        imageUrl: 'https://react-mbti-test-tawny.vercel.app/share_img.png',
+        imageUrl: 'https://react-mbti-test-tawny.vercel.app/kakao-share.png',
         link: {
           mobileWebUrl: 'https://react-mbti-test-tawny.vercel.app/',
           webUrl: 'https://react-mbti-test-tawny.vercel.app/',
