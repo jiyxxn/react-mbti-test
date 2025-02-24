@@ -1,12 +1,16 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
+const initialUserState = {
+  userToken: '',
+  isAuthenticated: false,
+  userId: '',
+};
+
 const useUsersStore = create(
   persist(
     (set) => ({
-      userToken: '',
-      isAuthenticated: false,
-      userId: '',
+      ...initialUserState,
       userLogin: (token, userId) =>
         set({
           userToken: token,
