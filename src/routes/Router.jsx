@@ -7,7 +7,7 @@ import TestPage from '../pages/TestPage';
 import TestResultsPage from '../pages/TestResultsPage';
 import ProtectedRoutes from './ProtectedRoutes';
 import LayoutHeader from '../components/LayoutHeader';
-import ScrollToTop from '../utils/scrollToTop';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Router = () => {
   return (
