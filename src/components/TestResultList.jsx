@@ -18,22 +18,24 @@ const TestResultList = () => {
       {isPending ? (
         <div className="text-center">로딩중 ...</div>
       ) : (
-        <ul className="flex flex-col gap-20 p-6 bg-white border-gray-500 shadow-md xl:p-20 xl:py-14 rounded-xl">
-          {(Array.isArray(testResults) ? testResults : []).length > 0 ? (
-            testResults.map((result) => {
-              return (
-                (result.openedData ||
-                  result.user.userId === authenticatedUserId) && (
-                  <TestResultItem
-                    key={result.id}
-                    {...result}
-                    authenticatedUserId={authenticatedUserId}
-                  />
-                )
-              );
-            })
-          ) : (
-            <div className="flex flex-col items-center justify-center p-20 bg-white border-gray-500 shadow-md pt-22 py-14 rounded-xl">
+        <>
+          {(Array.isArray(testResults) ? testResults : []).length > 0 && (
+            <ul className="flex flex-col gap-20 p-6 bg-white border-gray-500 shadow-md xl:p-20 xl:py-14 rounded-xl">
+              {testResults.map(
+                (result) =>
+                  (result.openedData ||
+                    result.user.userId === authenticatedUserId) && (
+                    <TestResultItem
+                      key={result.id}
+                      {...result}
+                      authenticatedUserId={authenticatedUserId}
+                    />
+                  )
+              )}
+            </ul>
+          )}
+          {(Array.isArray(testResults) ? testResults : []).length === 0 && (
+            <div className="flex flex-col items-center justify-center p-4 bg-white border-gray-500 shadow-md sm:p-20 pt-22 py-14 rounded-xl">
               <p>아직 아무도 테스트를 하지 않았어요 ᐡ´т ‧̫ т ᐡ</p>
               <Button
                 text={'내가 가장 먼저 테스트하러 가기'}
@@ -41,7 +43,7 @@ const TestResultList = () => {
               />
             </div>
           )}
-        </ul>
+        </>
       )}
     </section>
   );
