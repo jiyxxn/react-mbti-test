@@ -10,7 +10,6 @@
  */
 const QuestionLi = ({ id, question, options, type, onRadioChange }) => {
   const typeOptions = type.split('/');
-  console.log('typeOptions =====>', typeOptions);
 
   return (
     <li key={id} className="p-4 border-2 rounded-md md:p-8 border-slate-200">
