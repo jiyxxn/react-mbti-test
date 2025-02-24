@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { mbtiDescriptions } from '../utils/mbtiCaculator';
 import useChangeVisibility from '../hooks/useChangeVisibility';
 import useDeleteTest from '../hooks/useDeleteTest';
+import KakaoShare from './KakaoShare';
 
 /**
  * @component TestResultItem
@@ -69,8 +70,13 @@ const TestResultItem = ({
         </span>
       </div>
       <div className="p-4 border-2 border-indigo-100 shadow-inner sm:p-6 bg-indigo-50 rounded-xl text-indigo-950 shadow-indigo-100">
-        <div className="flex flex-col justify-between sm:items-center sm:flex-row">
+        <div className="flex flex-row justify-between sm:items-center ">
           <span className="text-xl font-bold">{results}</span>
+          {user.userId === authenticatedUserId && ( // 자신이 테스트한 결과에만 버튼 노출
+            <KakaoShare
+              description={`나의 MBTI는 ${results}! 당신의 MBTI가 궁금하다면?`}
+            />
+          )}
         </div>
         <p className="p-2 pt-4 mt-2 border-t-2 border-indigo-100 border-dotted indent-1">
           {mbtiDescriptions[results]}
