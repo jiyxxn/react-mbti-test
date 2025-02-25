@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 
 /**
  * @component LayoutHeader

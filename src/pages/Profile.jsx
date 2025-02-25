@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchUserProfile, updateUserInfo } from '../api/userService';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 import useLoadTestResults from '../hooks/useLoadTestResults';
 import TestResultItem from '../components/TestResultItem';
 

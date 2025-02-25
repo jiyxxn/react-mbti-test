@@ -9,7 +9,7 @@ import ProtectedRoutes from './ProtectedRoutes';
 import LayoutHeader from '../components/LayoutHeader';
 import ScrollToTop from '../components/ScrollToTop';
 import PublicRoutes from './PublicRoutes';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 
 const Router = () => {
   const isAuthenticated = useUsersStore((state) => state.isAuthenticated);

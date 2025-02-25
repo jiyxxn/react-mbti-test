@@ -1,5 +1,5 @@
 import useLoadTestResults from '../hooks/useLoadTestResults';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 import TestResultItem from './TestResultItem';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';

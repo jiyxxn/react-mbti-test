@@ -5,7 +5,7 @@ import { fetchUserProfile } from '../api/userService';
 import useAddTest from '../hooks/useAddTest';
 import TestForm from '../components/TestForm';
 import Button from '../components/Button';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 
 /**
  * MBTI 테스트 페이지 컴포넌트

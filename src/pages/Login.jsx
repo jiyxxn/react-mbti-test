@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../api/userService';
 import AuthForm from '../components/AuthForm';
-import useUsersStore from '../zustand/bearsStore';
+import useUsersStore from '../zustand/usersStore';
 
 /**
  * 로그인 페이지 컴포넌트
