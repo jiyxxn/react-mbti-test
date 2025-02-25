@@ -8,21 +8,24 @@ import TestResultsPage from '../pages/TestResultsPage';
 import ProtectedRoutes from './ProtectedRoutes';
 import LayoutHeader from '../components/LayoutHeader';
 import ScrollToTop from '../components/ScrollToTop';
+import PublicRoutes from './PublicRoutes';
+import useUsersStore from '../zustand/bearsStore';
 
 const Router = () => {
+  const isAuthenticated = useUsersStore((state) => state.isAuthenticated);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <LayoutHeader />
       <Routes>
-        <Route path="/" element={<Home />} />
-
-        <Route element={<ProtectedRoutes authentication={false} />}>
+        <Route element={<PublicRoutes isAuthenticated={isAuthenticated} />}>
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Route>
 
-        <Route element={<ProtectedRoutes authentication={true} />}>
+        <Route element={<ProtectedRoutes isAuthenticated={isAuthenticated} />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/result" element={<TestResultsPage />} />
