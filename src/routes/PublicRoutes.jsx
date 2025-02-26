@@ -9,7 +9,7 @@ import Home from '../pages/Home';
  */
 const PublicRoutes = ({ isAuthenticated }) => {
   const location = useLocation().pathname;
-  const unAuthenticatedPages = ['/login', '/join'];
+  const unAuthenticatedPages = ['/login', '/signup'];
 
   if (unAuthenticatedPages.includes(location)) {
     return isAuthenticated ? <Home /> : <Outlet />;
